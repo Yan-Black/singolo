@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main {
+    max-width: 1020px;
+    margin: 0 auto;
+}
+.section__info {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: justify;
+    margin-bottom: 46px;
+}
+.section__info h2 {
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: 900;
+}
+.grid-layout {
+    display: grid;
+    grid-gap: 34px 20px;
+    grid-template: 1fr 1fr / repeat(3, 59px 2fr)
+}
+.portfolio {
+    height: 870px;
+    background-color: #2d303a;
+    border-bottom: 6px solid #323746;
+    padding: 53px 40px;
+    color: #666d89;
+}
+.section__info > ul li {
+    display: inline-block;
+    margin-top: 4px;
+    margin-right: 8px;
+}
+.portfolio a {
+    color: #666d89;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid #666d89;
+    padding: 1px 7px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+/* .portfolio a:visited {
+    color: white;
+    border: 1px solid white;
+} */
+.portfolio a:hover, a:active {
+    color: white;
+    border: 1px solid white;
+}
+.section__info.section__info_portfolio {
+    margin-bottom: 18px;
+}
+.portfolio__gallery {
+    max-height: 602px;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+.portfolio__gallery img {
+    max-width: 100%;
+    max-height: 100%;
+    margin-bottom: 20px;
+}
+.about-us {
+    height: 734px;
+    background-color: #f2f2f2;
+    border-bottom: 6px solid #fff;
+    padding: 53px 40px;
+    color: #666d89;
+}
+.section__info.section__info_about-us {
+    margin-bottom: 45px;
+}
+.grid-layout.grid-layout_employee {
+    grid-template: 1fr 32px / repeat(3, 3fr);
+    grid-gap: 24px 20px;
+}
+.employee__info {
+    overflow: hidden;
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: 1.8;
+    text-align: justify;
+}
+.employee__info h3 {
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 3px;
+}
+.employee__social a{
+    display: inline-block;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.social__icon {
+    background-image: url("assets/social.png");
+    background-repeat: no-repeat;
+    height: 32px;
+    width: 32px;
+}
+.social__icon_gmail {
+    background-position: -40px;
+}
+.social__icon_twitter {
+    background-position: -80px;
+}
+.social__icon_linkedin {
+    background-position: -120px;
+}
