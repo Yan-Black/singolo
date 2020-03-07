@@ -352,6 +352,10 @@
     letter-spacing: 0.3px;
 }
 
+.get-a-quote__form > input:invalid {
+    background: #d33e36;
+}
+
 input[type="submit"] {
     cursor: pointer;
     color: #f0d8d9;
