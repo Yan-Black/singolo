@@ -26,22 +26,22 @@
             <div class="slider__arrow"></div> 
             <div class="slider__phone">
                 <div class="slider__phone__container">
-                    <img src="assets/iphone.png" alt="phone" class="phone">
-                    <img src="assets/shadow.png" alt="phone" class="phone__shadow">
+                    <img src="assets/phone/iphone.png" alt="phone" class="phone">
+                    <img src="assets/phone/shadow.png" alt="phone" class="phone__shadow">
                     <div class="phone__screen"></div>
                 </div>
             </div>
             <div class="slider__phone phone_rotate">
                 <div class="slider__phone__container">
-                    <img src="assets/iphone.png" alt="phone" class="phone">
-                    <img src="assets/shadow.png" alt="phone" class="phone__shadow phone__shadow_rotate">
+                    <img src="assets/phone/iphone.png" alt="phone" class="phone">
+                    <img src="assets/phone/shadow.png" alt="phone" class="phone__shadow phone__shadow_rotate">
                     <div class="phone__screen phone__screen_horizontal"></div>
                 </div> 
             </div>
             <div class="slider__arrow arrow_rotate"></div>
         </section>
         <section class="our-services">
-            <div class="our-services__info">
+            <div class="section__info section__info_our-services">
                 <h2>Our Services</h2>
                 <p>Fusce dapibus, tellus ac cursus commodo, 
                     tortor mauris condimentum. Duis mollis, 
@@ -132,27 +132,28 @@
             </div>
             <div class="grid-layout grid-layout_employee">
                 <div class="about-us__employee">
-                    <img src="assets/employee/Adam Jensen.png" alt="Adam Jensen">
+                    <img src="assets/employee/Adam Jensen.png" alt="AdamJensen">
                     <div class="employee__info">
-                        <h3>Adam Jensen</h3>
+                        <h3 class="employee__name">Adam Jensen</h3>
                         <p>Quisque luctus, quam eget molestie commodo, 
                             lacus purus cursus purus, nec rutrum tellus dolor id lorem.</p>
                     </div>            
                 </div>
                 <div class="about-us__employee">                   
-                    <img src="assets/employee/Desmond Miles.png" alt="Desmond Miles">
+                    <img src="assets/employee/Desmond Miles.png" alt="DesmondMiles">
                     <div class="employee__info">
-                        <h3>Desmond Miles</h3>
+                        <h3 class="employee__name">Desmond Miles</h3>
                         <p>Curabitur vestibulum eget mauris quis laoreet.
                              Phasellus in quam laoreet, viverra lacus ut, ultrices velit.</p>
                     </div>             
                 </div>
                 <div class="about-us__employee">
-                    <img src="assets/employee/Scolara Visari.png" alt="Scolara Visari">
+                    <img src="assets/employee/Scolara Visari.png" alt="ScolaraVisari">
                     <div class="employee__info">
-                        <h3>Scolara Visari</h3>
+                        <h3 class="employee__name">Scolara Visari</h3>
                         <p>Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, 
-                            et consequat felis. Quisque condimentum.</p>
+                            et consequat felis. Quisque condimentum.
+                        </p>
                     </div>
                 </div>
                 <div class="employee__social">
@@ -186,7 +187,7 @@
             </div>
             <div class="get-a-quote__field">
                 <form class="get-a-quote__form" id="quote" action="" method="POST">
-                    <input type="text" placeholder="Name (Required)" id="fname" required>
+                    <input type="text" placeholder="Name (Required)" id="fname" required pattern="[A-Za-z]{0,10}">
                     <input type="email" placeholder="Email (Required)" id="email" required>
                     <input type="text" placeholder="Subject" id="subject">
                     <textarea class="form__text" placeholder="Describe your project in detail..."></textarea>

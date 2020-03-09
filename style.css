@@ -109,7 +109,7 @@
     position: absolute;
     top: 65px;
     left: 14px;
-    background-image: url("assets/layer-vertical.jpg");
+    background-image: url("assets/phone/layer-vertical.jpg");
     background-repeat: no-repeat;
     background-position: -14px -135px;
     height: 333px;
@@ -118,7 +118,7 @@
 }
 
 .phone__screen.phone__screen_horizontal {
-    background-image: url("assets/layer-horizontal.jpg");
+    background-image: url("assets/phone/layer-horizontal.jpg");
     background-position: -119px -122px;
 }
 
@@ -158,23 +158,13 @@
     font-weight: 900;
 }
 
-.our-services__info h2 {
-    margin-bottom: 10px;
-    font-size: 30px;
-    font-weight: 900;
-}
-
-.our-services__info {
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 1.7;
-    text-align: justify;
-    margin-bottom: 47px;
+.section__info_our-services {
+    margin-bottom: 37px;
 }
 
 .grid-layout {
     display: grid;
-    grid-gap: 34px 21px;
+    grid-gap: 28px 21px;
     grid-template: 1fr 1fr / repeat(3, 59px 2fr)
 }
 
@@ -182,20 +172,26 @@
     padding-top: 1px;
     font-size: 12px;
     font-weight: 500;
+    max-height: 95px;
+    line-height: 1.8;
+    text-align: justify;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .our-services__property h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
     font-size: 18px;
     font-weight: 900;
-    padding-bottom: 13px;
     letter-spacing: -0.1px;
-    line-height: 0.7;
+    margin-bottom: 3px;
 }
 
-.our-services__property p {
-    text-align: justify;
-    line-height: 1.8;
+.our-services__image {
+    margin-top: 10px;
 }
 
 .portfolio {
@@ -275,21 +271,28 @@
 }
 
 .employee__info {
-    overflow: hidden;
     padding-top: 7px;
     font-size: 12px;
     line-height: 1.8;
     text-align: justify;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+    max-height: 84px;
 }
 
-.employee__info h3 {
+.employee__name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
     font-size: 18px;
     font-weight: 900;
     letter-spacing: -0.1px;
     margin-bottom: 3px;
 }
 
-.employee__social a{
+.employee__social a {
     display: inline-block;
     margin-right: 5px;
     cursor: pointer;
@@ -297,6 +300,13 @@
 
 .social__icon {
     background-image: url("assets/social.png");
+    background-repeat: no-repeat;
+    height: 32px;
+    width: 32px;
+}
+
+.social__icon:hover {
+    background-image: url("assets/socialhover.png");
     background-repeat: no-repeat;
     height: 32px;
     width: 32px;
@@ -351,7 +361,7 @@
     font-size: 11px;
     letter-spacing: 0.3px;
 }
-
+/*If invalid background is unnecessary prop, it can be removed to match the layout. :)*/
 .get-a-quote__form > input:invalid {
     background: #d33e36;
 }
