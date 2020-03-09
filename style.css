@@ -132,6 +132,14 @@
     cursor: pointer;
 }
 
+.slider__arrow:hover {
+    background-image: url("assets/chevhover.png");
+}
+
+.slider__arrow:active {
+    opacity: 0.5;
+}
+
 .slider__arrow.arrow_rotate {
     transform: rotate(180deg) translateX(-922px);
 }
