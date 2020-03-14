@@ -9,38 +9,43 @@
     <title>Singolo</title>
 </head>
 <body>
-    <main class="main">
+    <main class="main" id="main">
         <header class="header">
             <h1>singolo</h1>
             <nav class="header__navigation">
                 <ul class="navigation">
-                    <li><a href="#">home</a></li>
-                    <li><a href="#">services</a></li>
-                    <li><a href="#">portfolio</a></li>
-                    <li><a href="#">about</a></li>
-                    <li><a href="#">contact</a></li>
+                    <li><a href="#main" class="navigation__link">home</a></li>
+                    <li><a href="#our-services" class="navigation__link">services</a></li>
+                    <li><a href="#portfolio" class="navigation__link">portfolio</a></li>
+                    <li><a href="#about-us" class="navigation__link">about</a></li>
+                    <li><a href="#get-a-quote" class="navigation__link">contact</a></li>
                 </ul>
             </nav>
         </header>
         <section class="slider">
-            <div class="slider__arrow"></div> 
-            <div class="slider__phone">
-                <div class="slider__phone__container">
-                    <img src="assets/phone/iphone.png" alt="phone" class="phone">
-                    <img src="assets/phone/shadow.png" alt="phone" class="phone__shadow">
-                    <div class="phone__screen"></div>
+            <div class="slider__arrow"></div>
+            <div class="slider__list">
+                <div class="slider__phone">
+                    <div class="slider__phone__container">
+                        <img src="assets/phone/iphone.png" alt="phone" class="phone">
+                        <img src="assets/phone/shadow.png" alt="phone" class="phone__shadow">
+                        <div class="phone__screen"></div>
+                    </div>
+                </div>
+                <div class="slider__phone phone_rotate">
+                    <div class="slider__phone__container">
+                        <img src="assets/phone/iphone.png" alt="phone" class="phone">
+                        <img src="assets/phone/shadow.png" alt="phone" class="phone__shadow phone__shadow_rotate">
+                        <div class="phone__screen phone__screen_horizontal"></div>
+                    </div> 
                 </div>
             </div>
-            <div class="slider__phone phone_rotate">
-                <div class="slider__phone__container">
-                    <img src="assets/phone/iphone.png" alt="phone" class="phone">
-                    <img src="assets/phone/shadow.png" alt="phone" class="phone__shadow phone__shadow_rotate">
-                    <div class="phone__screen phone__screen_horizontal"></div>
-                </div> 
-            </div>
+            <div class="slider__list slider__list_two">
+                
+            </div> 
             <div class="slider__arrow arrow_rotate"></div>
         </section>
-        <section class="our-services">
+        <section class="our-services" id="our-services">
             <div class="section__info section__info_our-services">
                 <h2>Our Services</h2>
                 <p>Fusce dapibus, tellus ac cursus commodo, 
@@ -95,15 +100,15 @@
                 </div>
             </div>
         </section>
-        <section class="portfolio">
+        <section class="portfolio" id="portfolio">
             <div class="section__info section__info_portfolio">
                 <h2>Portfolio</h2>
                 <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
                 <ul class="portfolio__navigation">
-                    <li><a class="portfolio__link" href="#">All</a></li>
-                    <li><a class="portfolio__link" href="#">Web Design</a></li>
-                    <li><a class="portfolio__link" href="#">Graphic Design</a></li>
-                    <li><a class="portfolio__link" href="#">Artwork</a></li>
+                    <li><a class="portfolio__link" href="#portfolio">All</a></li>
+                    <li><a class="portfolio__link" href="#portfolio">Web Design</a></li>
+                    <li><a class="portfolio__link" href="#portfolio">Graphic Design</a></li>
+                    <li><a class="portfolio__link" href="#portfolio">Artwork</a></li>
                 </ul>
             </div>
             <div class="portfolio__gallery">
@@ -121,7 +126,7 @@
                 <img src="assets/gallery/gallery12.png" alt="portfolio__gallery">
             </div>
         </section>
-        <section class="about-us">
+        <section class="about-us" id="about-us">
             <div class="section__info section__info_about-us">
                 <h2>About Us</h2>
                 <p>Fusce dapibus, tellus ac cursus commodo, tortor 
@@ -176,7 +181,7 @@
                 </div>
             </div>
         </section>
-        <section class="get-a-quote">
+        <section class="get-a-quote" id="get-a-quote">
             <div class="section__info section__info_get-a-quote">
                 <h2>Get a Quote</h2>
                 <p>Fusce dapibus, tellus ac cursus commodo, tortor 
@@ -186,12 +191,19 @@
                     commodo, tortor mauris condimentum nibh.</p>
             </div>
             <div class="get-a-quote__field">
-                <form class="get-a-quote__form" id="quote" action="" method="POST">
-                    <input type="text" placeholder="Name (Required)" id="fname" required pattern="[A-Za-z]{0,10}">
-                    <input type="email" placeholder="Email (Required)" id="email" required>
-                    <input type="text" placeholder="Subject" id="subject">
+                <form class="get-a-quote__form" name="quote" action="" method="POST">
+                    <input type="text" placeholder="Name (Required)" name="fname" required pattern="[A-Za-z]{0,10}">
+                    <input type="email" placeholder="Email (Required)" name="email" required>
+                    <input type="text" placeholder="Subject" name="subject">
                     <textarea class="form__text" placeholder="Describe your project in detail..."></textarea>
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Submit" id="submit">
+                    <div id="message-block" class="hidden">
+                        <div id="message">
+                            <h3>Письмо отправлено</h3>
+                            <p id="message__text"></p>
+                            <button class="close-btn">OK</button>
+                        </div>
+                    </div>
                 </form>
                 <div class="get-a-quote__contact-information">
                     <h3>Contact Information</h3>
@@ -227,5 +239,6 @@
             </div>     
         </footer>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>  
