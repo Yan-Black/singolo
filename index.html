@@ -24,7 +24,7 @@
         </header>
         <section class="slider">
             <div class="slider__arrow"></div>
-            <div class="slider__list">
+            <div class="slider__list slider__list_active">
                 <div class="slider__phone">
                     <div class="slider__phone__container">
                         <img src="assets/phone/iphone.png" alt="phone" class="phone">
@@ -40,9 +40,7 @@
                     </div> 
                 </div>
             </div>
-            <div class="slider__list slider__list_two">
-                
-            </div> 
+            <div class="slider__list slider__list_two"></div> 
             <div class="slider__arrow arrow_rotate"></div>
         </section>
         <section class="our-services" id="our-services">
@@ -195,11 +193,12 @@
                     <input type="text" placeholder="Name (Required)" name="fname" required pattern="[A-Za-z]{0,10}">
                     <input type="email" placeholder="Email (Required)" name="email" required>
                     <input type="text" placeholder="Subject" name="subject">
-                    <textarea class="form__text" placeholder="Describe your project in detail..."></textarea>
+                    <textarea class="form__text" placeholder="Describe your project in detail..." maxlength="400"></textarea>
                     <input type="submit" value="Submit" id="submit">
                     <div id="message-block" class="hidden">
                         <div id="message">
                             <h3>Письмо отправлено</h3>
+                            <p id="message__head"></p>
                             <p id="message__text"></p>
                             <button class="close-btn">OK</button>
                         </div>
