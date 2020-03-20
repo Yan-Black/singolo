@@ -1,4 +1,5 @@
-let nav        = document.querySelector('.navigation'),
+let sections   = document.querySelectorAll('main, main >*'),   
+    nav        = document.querySelector('.navigation'),
     navLinks   = document.querySelectorAll('.navigation__link')
     slider     = document.querySelector('.slider'),
     slides     = [...document.querySelectorAll('.slider__list')],
@@ -7,16 +8,21 @@ let nav        = document.querySelector('.navigation'),
     portLinks  = document.querySelectorAll('.portfolio__link'),
     portImages = document.querySelectorAll('.portfolio__gallery > img'),
     submit     = document.getElementById('submit'),
-    closeBtn   = document.querySelector('.close-btn') 
+    closeBtn   = document.querySelector('.close-btn'), 
     position   = [`-${slider.getBoundingClientRect().width}px`,`${slider.getBoundingClientRect().width}px`]
 
-nav.addEventListener('click', e => {
+document.addEventListener('scroll', onScroll)    
 
+nav.addEventListener('click', e => {
+    e.preventDefault()
     let target = e.target
         if(target.tagName != 'A') return
 
-        navLinks.forEach(el => el.classList.remove('active'))
-        target.classList.add('active')
+        sections.forEach(section => {
+            if(target.getAttribute('href').substr(1) === section.getAttribute('id')) {
+                window.scrollTo(0,section.offsetTop - header.offsetHeight)
+            }
+        })
 }) 
 
 slider.addEventListener('click', e => {
@@ -39,14 +45,15 @@ arrows[1].addEventListener('click', () => {
 })
 
 portNav.addEventListener('click', e => {
-
+    
     let target = e.target
-        if(target.tagName != 'A') return
+        e.preventDefault()
+        if(target.tagName != 'A' || target.className === 'portfolio__link portfolio-active') return
 
         portLinks.forEach(el => el.classList.remove('portfolio-active'))
         target.classList.add('portfolio-active')
         //Change img position
-        portImages.forEach(el => el.style.order = Math.trunc(Math.random() * 12))   
+        changeImagePosition()
 }) 
 
 portfolio.addEventListener('click', e => {
@@ -61,30 +68,97 @@ portfolio.addEventListener('click', e => {
         target.classList.add('img-selected')
 })
 
+fname.onblur = () => {
+    let regexpName  = /[A-Za-z]/gi
+    if(!regexpName.test(fname.value)) {
+        fname.classList.add('invalid')
+        error__name.style.display = 'inline'
+    }
+}
+
+fname.onfocus = function() {
+    if(this.classList.contains('invalid')) {
+        this.classList.remove('invalid')
+        error__name.style.display = 'none'
+    }
+}
+
+email.onblur = () => {
+    let regexpEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    if(!regexpEmail.test(email.value)) {
+        email.classList.add('invalid')
+        error__email.style.display = 'inline'
+    }
+}
+
+email.onfocus = function() {
+    if(this.classList.contains('invalid')) {
+        this.classList.remove('invalid')
+        error__email.style.display = 'none'
+    }
+}
+
 submit.addEventListener('click', () => {
 
-    let mess     = document.getElementById('message-block'),
-        form     = document.forms.quote,
-        name     = form.fname.value,
-        email    = form.email.value,
-        subject  = form.subject.value,
-        textarea = document.querySelector('.form__text').value,
-        regexp   = /[A-Za-z]/gi
+    let mess        = document.getElementById('message-block'),
+        form        = document.forms.quote,
+        subject     = form.subject.value,
+        textarea    = document.querySelector('.form__text').value,
+        regexpName  = /[A-Za-z]/gi,
+        regexpEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
     form.onsubmit = e => e.preventDefault()
 
-    if(!name || !email || !regexp.test(name)) return
-
+    if(!fname.value || !regexpName.test(fname.value)) {
+        fname.classList.add('invalid')
+        error__name.style.display = 'inline'
+        return
+    }
+    if(!email.value || !regexpEmail.test(email.value)) {
+        email.classList.add('invalid')
+        error__email.style.display = 'inline'
+        return
+    }
+    
     createText(subject, textarea)
 
     mess.classList.toggle('hidden')
 })
 
 closeBtn.addEventListener('click', () => {
-
     let messageBlock = document.getElementById('message-block')
         messageBlock.classList.toggle('hidden')
+
+        fname.value = ''
+        email.value = ''
+        subject.value = ''
+        document.querySelector('.form__text').value = ''
 })
+
+function onScroll() {
+    let curPos = window.scrollY 
+        
+        sections.forEach(section => {
+            if(section.offsetTop - header.offsetHeight <= curPos && (section.offsetTop + section.offsetHeight + header.offsetHeight) > curPos) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active')
+                    if(section.getAttribute('id') === link.getAttribute('href').substring(1)) {
+                        link.classList.add('active')
+                    }
+                })
+            }
+        })
+
+}
+
+const changeImagePosition = () => {
+    let imgArr = Array.from(document.querySelectorAll('.portfolio__gallery > img')),
+         poped = imgArr.pop()
+   
+         imgArr.unshift(poped)
+
+    document.querySelector('.portfolio__gallery').append(...imgArr) 
+}
 
 const createText = (sub, text) => {
 

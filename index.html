@@ -10,11 +10,11 @@
 </head>
 <body>
     <main class="main" id="main">
-        <header class="header">
+        <header class="header" id="header">
             <h1>singolo</h1>
             <nav class="header__navigation">
                 <ul class="navigation">
-                    <li><a href="#main" class="navigation__link">home</a></li>
+                    <li><a href="#slider" class="navigation__link active">home</a></li>
                     <li><a href="#our-services" class="navigation__link">services</a></li>
                     <li><a href="#portfolio" class="navigation__link">portfolio</a></li>
                     <li><a href="#about-us" class="navigation__link">about</a></li>
@@ -22,7 +22,7 @@
                 </ul>
             </nav>
         </header>
-        <section class="slider">
+        <section class="slider" id="slider">
             <div class="slider__arrow"></div>
             <div class="slider__list slider__list_active">
                 <div class="slider__phone">
@@ -190,9 +190,11 @@
             </div>
             <div class="get-a-quote__field">
                 <form class="get-a-quote__form" name="quote" action="" method="POST">
-                    <input type="text" placeholder="Name (Required)" name="fname" required pattern="[A-Za-z]{0,10}">
-                    <input type="email" placeholder="Email (Required)" name="email" required>
-                    <input type="text" placeholder="Subject" name="subject">
+                    <input type="text" placeholder="Name (Required)" id="fname">
+                    <span id="error__name">Please, enter correct Name</span>
+                    <input type="email" placeholder="Email (Required)" id="email">
+                    <span id="error__email">Please, enter correct email</span>
+                    <input type="text" placeholder="Subject" id="subject">
                     <textarea class="form__text" placeholder="Describe your project in detail..." maxlength="400"></textarea>
                     <input type="submit" value="Submit" id="submit">
                     <div id="message-block" class="hidden">
@@ -228,7 +230,7 @@
                 </div>
             </div>
         </section>
-        <footer class="footer">
+        <footer class="footer" id="footer">
             <p class="footer__license">&#169; Copyright 2013</p>
             <div class="footer__social">
                 <a href="#" class="social__icon social__icon_facebook"></a>
