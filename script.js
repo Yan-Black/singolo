@@ -1,4 +1,4 @@
-let sections   = document.querySelectorAll('main, main >*'),   
+let sections = document.querySelectorAll('main, main >*'),   
     nav        = document.querySelector('.navigation'),
     navLinks   = document.querySelectorAll('.navigation__link')
     slider     = document.querySelector('.slider'),
@@ -34,15 +34,15 @@ slider.addEventListener('click', e => {
         target.parentElement.lastElementChild.classList.toggle('phone__screen_off')
 }) 
 
-arrows[0].addEventListener('click', () => {
+arrows[0].addEventListener('click', loadTime(function(){
     changeInitPosition(position[0])
     setTimeout(() => changeSlide(position[1]),100)
-})
+},600)) 
 
-arrows[1].addEventListener('click', () => {
+arrows[1].addEventListener('click', loadTime(function(){
     changeInitPosition(position[1])
     setTimeout(() => changeSlide(position[0]),100)
-})
+},600))
 
 portNav.addEventListener('click', e => {
     
@@ -128,14 +128,13 @@ submit.addEventListener('click', () => {
 closeBtn.addEventListener('click', () => {
     let messageBlock = document.getElementById('message-block')
         messageBlock.classList.toggle('hidden')
-
         fname.value = ''
         email.value = ''
         subject.value = ''
         document.querySelector('.form__text').value = ''
 })
 
-function onScroll() {
+function onScroll(e) {
     let curPos = window.scrollY 
         
         sections.forEach(section => {
@@ -194,4 +193,16 @@ const changeInitPosition = pos => {
     }
 }
 
+function loadTime(f, ms) {
 
+    return function freeze() {
+
+      if(Date.now() - freeze.lastCall < ms) return;
+      else {
+        f.apply(this, arguments)
+        freeze.lastCall = Date.now()
+      }
+    }
+
+    freeze.lastCall = 0
+  }

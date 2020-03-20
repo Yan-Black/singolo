@@ -78,10 +78,6 @@ html {
     color:#f06c64;
 }
 
-.animate {
-    transition: ease-in-out 0.5s;
-}
-
 .navigation__link:hover, .navigation__link:active{
     color: #f06c64;
     transition: all .3s;
@@ -90,9 +86,13 @@ html {
 .slider {
     background-color: #f06c64;
     position: relative;
-    height: 696px;
+    height: 600px;
     overflow: hidden;
-    padding-top: 95px;
+    margin-top: 96px;
+}
+
+.animate {
+    transition: ease-in-out 0.5s;
 }
 
 .slider__list {
@@ -100,7 +100,7 @@ html {
     height: 600px;
     border-bottom: 6px solid #ea676b;
     position: absolute;
-    top: 13.8%;
+    top: 0;
     left: 0;
 }
 
@@ -168,7 +168,7 @@ html {
     position: absolute;
     height: 27px;
     width: 16px;
-    top: 54.1%;
+    top: 47%;
     left: 4.2%;
     cursor: pointer;
 }
