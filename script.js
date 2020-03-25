@@ -20,7 +20,7 @@ nav.addEventListener('click', e => {
 
         sections.forEach(section => {
             if(target.getAttribute('href').substr(1) === section.getAttribute('id')) {
-                window.scrollTo(0,section.offsetTop - header.offsetHeight)
+                window.scrollTo(0,section.offsetTop)
             }
         })
 }) 
@@ -138,7 +138,7 @@ function onScroll(e) {
     let curPos = window.scrollY 
         
         sections.forEach(section => {
-            if(section.offsetTop - header.offsetHeight <= curPos && (section.offsetTop + section.offsetHeight + header.offsetHeight) > curPos) {
+            if(section.offsetTop <= curPos && (section.offsetTop + section.offsetHeight) > curPos) {
                 navLinks.forEach(link => {
                     link.classList.remove('active')
                     if(section.getAttribute('id') === link.getAttribute('href').substring(1)) {
@@ -206,3 +206,9 @@ function loadTime(f, ms) {
 
     freeze.lastCall = 0
   }
+
+document.querySelector('.header__hamburger').addEventListener('click', function() {
+    this.classList.toggle('hamburger-active')
+    document.querySelector('.mobile-navigation').classList.toggle('mobile-navigation-active')
+    document.querySelector('.header > h1').classList.toggle('hidden')
+})

@@ -11,7 +11,20 @@
 <body>
     <main class="main" id="main">
         <header class="header" id="header">
-            <h1>singolo</h1>
+           <h1>singolo</h1>
+            <span class="header__hamburger"><span class="hamburger__line"></span></span>
+            <div class="mobile-navigation">
+                <nav class="mobile-navigation__aside">
+                    <h1>singolo</h1>
+                    <ul class="mobile-navigation__links">
+                        <li><a href="#slider" class="navigation__link active">home</a></li>
+                        <li><a href="#our-services" class="navigation__link">services</a></li>
+                        <li><a href="#portfolio" class="navigation__link">portfolio</a></li>
+                        <li><a href="#about-us" class="navigation__link">about</a></li>
+                        <li><a href="#get-a-quote" class="navigation__link">contact</a></li>
+                    </ul>
+                </nav>
+            </div>
             <nav class="header__navigation">
                 <ul class="navigation">
                     <li><a href="#slider" class="navigation__link active">home</a></li>
@@ -138,48 +151,47 @@
             </div>
             <div class="grid-layout grid-layout_employee">
                 <div class="about-us__employee">
-                    <img src="assets/employee/Adam Jensen.png" alt="AdamJensen">
+                    <img class="employee__card" src="assets/employee/Adam Jensen.png" alt="AdamJensen">
                     <div class="employee__info">
                         <h3 class="employee__name">Adam Jensen</h3>
                         <p>Quisque luctus, quam eget molestie commodo, 
                             lacus purus cursus purus, nec rutrum tellus dolor id lorem.</p>
+                    </div>
+                    <div class="employee__social">
+                        <a href="#" class="social__icon social__icon_facebook"></a>
+                        <a href="#" class="social__icon social__icon_gmail"></a>
+                        <a href="#" class="social__icon social__icon_twitter"></a>
+                        <a href="#" class="social__icon social__icon_linkedin"></a>
                     </div>            
                 </div>
                 <div class="about-us__employee">                   
-                    <img src="assets/employee/Desmond Miles.png" alt="DesmondMiles">
+                    <img class="employee__card" src="assets/employee/Desmond Miles.png" alt="DesmondMiles">
                     <div class="employee__info">
                         <h3 class="employee__name">Desmond Miles</h3>
                         <p>Curabitur vestibulum eget mauris quis laoreet.
                              Phasellus in quam laoreet, viverra lacus ut, ultrices velit.</p>
-                    </div>             
+                    </div>   
+                    <div class="employee__social">
+                        <a href="#" class="social__icon social__icon_facebook"></a>
+                        <a href="#" class="social__icon social__icon_gmail"></a>
+                        <a href="#" class="social__icon social__icon_twitter"></a>
+                        <a href="#" class="social__icon social__icon_linkedin"></a>
+                    </div>          
                 </div>
                 <div class="about-us__employee">
-                    <img src="assets/employee/Scolara Visari.png" alt="ScolaraVisari">
+                    <img class="employee__card" src="assets/employee/Scolara Visari.png" alt="ScolaraVisari">
                     <div class="employee__info">
                         <h3 class="employee__name">Scolara Visari</h3>
                         <p>Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, 
                             et consequat felis. Quisque condimentum.
                         </p>
                     </div>
-                </div>
-                <div class="employee__social">
-                    <a href="#" class="social__icon social__icon_facebook"></a>
-                    <a href="#" class="social__icon social__icon_gmail"></a>
-                    <a href="#" class="social__icon social__icon_twitter"></a>
-                    <a href="#" class="social__icon social__icon_linkedin"></a>
-                </div>
-                <div class="employee__social">
-                    <a href="#" class="social__icon social__icon_facebook"></a>
-                    <a href="#" class="social__icon social__icon_gmail"></a>
-                    <a href="#" class="social__icon social__icon_twitter"></a>
-                    <a href="#" class="social__icon social__icon_linkedin"></a>
-                </div>
-                <div class="employee__social">
-                    <a href="#" class="social__icon social__icon_facebook"></a>
-                    <a href="#" class="social__icon social__icon_gmail"></a>
-                    <a href="#" class="social__icon social__icon_twitter"></a>
-                    <a href="#" class="social__icon social__icon_linkedin"></a>
-                </div>
+                    <div class="employee__social">
+                        <a href="#" class="social__icon social__icon_facebook"></a>
+                        <a href="#" class="social__icon social__icon_gmail"></a>
+                        <a href="#" class="social__icon social__icon_twitter"></a>
+                        <a href="#" class="social__icon social__icon_linkedin"></a>
+                    </div>  
             </div>
         </section>
         <section class="get-a-quote" id="get-a-quote">
