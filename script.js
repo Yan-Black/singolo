@@ -1,35 +1,40 @@
-let sections = document.querySelectorAll('main, main >*'),   
+let sections   = document.querySelectorAll('main, main >*'),   
     nav        = document.querySelector('.navigation'),
+    mobileNav  = document.querySelector('.mobile-navigation__links'),
     navLinks   = document.querySelectorAll('.navigation__link')
-    slider     = document.querySelector('.slider'),
-    slides     = [...document.querySelectorAll('.slider__list')],
+    slider     = document.querySelector('.slider__container'),
+    slides     = [...document.querySelectorAll('.slider__slide')],
     arrows     = document.querySelectorAll('.slider__arrow'),
     portNav    = document.querySelector('.portfolio__navigation'),
     portLinks  = document.querySelectorAll('.portfolio__link'),
     portImages = document.querySelectorAll('.portfolio__gallery > img'),
     submit     = document.getElementById('submit'),
     closeBtn   = document.querySelector('.close-btn'), 
-    position   = [`-${slider.getBoundingClientRect().width}px`,`${slider.getBoundingClientRect().width}px`]
+    position   = [`-50%`,`50%`]
 
 document.addEventListener('scroll', onScroll)    
 
-nav.addEventListener('click', e => {
+const moveToSection = e => {
     e.preventDefault()
     let target = e.target
         if(target.tagName != 'A') return
 
         sections.forEach(section => {
             if(target.getAttribute('href').substr(1) === section.getAttribute('id')) {
-                window.scrollTo(0,section.offsetTop - header.offsetHeight)
+                window.scrollTo(0,section.offsetTop)
             }
         })
-}) 
+}
+
+mobileNav.addEventListener('click', moveToSection) 
+
+nav.addEventListener('click', moveToSection) 
 
 slider.addEventListener('click', e => {
 
     let target = e.target  
 
-        if(target.className === 'phone__screen' || target.className === 'phone__screen phone__screen_horizontal') target.classList.add('phone__screen_off')
+        if(target.className === 'screen' || target.className === 'screen screen_horizontal') target.parentElement.classList.add('phone__screen_off')
         if(target.className !== 'phone') return 
         target.parentElement.lastElementChild.classList.toggle('phone__screen_off')
 }) 
@@ -138,7 +143,7 @@ function onScroll(e) {
     let curPos = window.scrollY 
         
         sections.forEach(section => {
-            if(section.offsetTop - header.offsetHeight <= curPos && (section.offsetTop + section.offsetHeight + header.offsetHeight) > curPos) {
+            if(section.offsetTop <= curPos && (section.offsetTop + section.offsetHeight) > curPos) {
                 navLinks.forEach(link => {
                     link.classList.remove('active')
                     if(section.getAttribute('id') === link.getAttribute('href').substring(1)) {
@@ -168,7 +173,6 @@ const createText = (sub, text) => {
 }
 
 const changeSlide = pos => {
-
     let delay = parseFloat(getComputedStyle(slides[0]).transition.slice(4,7))*1000
          
     slides[0].style.left = pos 
@@ -181,9 +185,7 @@ const changeSlide = pos => {
         },delay)
 }
 
-const changeInitPosition = pos => {
-
-    slides.forEach(el => el.classList.add('animate'))             
+const changeInitPosition = pos => {           
     if(slides[1].style.left !== pos) {
         setTimeout(() => {
             slides[1].remove();
@@ -206,3 +208,9 @@ function loadTime(f, ms) {
 
     freeze.lastCall = 0
   }
+
+document.querySelector('.header__hamburger').addEventListener('click', function() {
+    this.classList.toggle('hamburger-active')
+    document.querySelector('.mobile-navigation').classList.toggle('mobile-navigation-active')
+    document.querySelector('.header > h1').classList.toggle('hidden')
+})
