@@ -1,5 +1,6 @@
 let sections   = document.querySelectorAll('main, main >*'),   
     nav        = document.querySelector('.navigation'),
+    hamburger  = document.querySelector('.header__hamburger'),
     mobileNav  = document.querySelector('.mobile-navigation__links'),
     navLinks   = document.querySelectorAll('.navigation__link')
     slider     = document.querySelector('.slider__container'),
@@ -14,17 +15,19 @@ let sections   = document.querySelectorAll('main, main >*'),
 
 document.addEventListener('scroll', onScroll)    
 
-const moveToSection = e => {
-    e.preventDefault()
-    let target = e.target
-        if(target.tagName != 'A') return
+document.querySelector('.mobile-navigation').addEventListener('click', e => {
+    let target = e.target 
+    console.log(target.className);
+    
+    if(target.className !== 'mobile-navigation mobile-navigation-active') return
+    hamburger.click()
+})
 
-        sections.forEach(section => {
-            if(target.getAttribute('href').substr(1) === section.getAttribute('id')) {
-                window.scrollTo(0,section.offsetTop)
-            }
-        })
-}
+hamburger.addEventListener('click', function() {
+    this.classList.toggle('hamburger-active')
+    document.querySelector('.mobile-navigation').classList.toggle('mobile-navigation-active')
+    document.querySelector('.header > h1').classList.toggle('hidden')
+})
 
 mobileNav.addEventListener('click', moveToSection) 
 
@@ -155,6 +158,19 @@ function onScroll(e) {
 
 }
 
+function moveToSection(e) {
+    e.preventDefault()
+    let target = e.target
+        if(target.tagName != 'A') return
+
+        sections.forEach(section => {
+            if(target.getAttribute('href').substr(1) === section.getAttribute('id')) {
+                window.scrollTo(0,section.offsetTop)
+                hamburger.click()
+            }
+        })
+}
+
 const changeImagePosition = () => {
     let imgArr = Array.from(document.querySelectorAll('.portfolio__gallery > img')),
          poped = imgArr.pop()
@@ -208,9 +224,3 @@ function loadTime(f, ms) {
 
     freeze.lastCall = 0
   }
-
-document.querySelector('.header__hamburger').addEventListener('click', function() {
-    this.classList.toggle('hamburger-active')
-    document.querySelector('.mobile-navigation').classList.toggle('mobile-navigation-active')
-    document.querySelector('.header > h1').classList.toggle('hidden')
-})

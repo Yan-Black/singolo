@@ -103,7 +103,7 @@ html {
     left: -100%;
     width: 100%;
     background: #0008;
-    height: 812px;
+    height: 1080px;
     transition: ease-in-out .3s;
 }
 
@@ -188,6 +188,7 @@ html {
 .slider__slide.slider__slide_two {
     border: none;
     position: absolute;
+    max-height: 594px;
     top: 0;
     left: 50%;
 }
@@ -195,10 +196,6 @@ html {
 .slide-2 {
     width: 100%;
     height: auto;
-}
-
-.slider__phone.phone_rotate {
-    transform: rotate(90deg) translate(121px, -771px);
 }
 
 .phone__container {
@@ -417,7 +414,6 @@ html {
 .portfolio__gallery img {
     width: 100%;
     height: auto;
-    max-width: 220px;
     cursor: pointer;
 }
 
@@ -716,6 +712,7 @@ input[type="submit"]:active {
     display: flex;
     justify-content: space-between;
     font-size: 12px;
+    font-weight: 900;
     text-align: center;
     margin-bottom: 14.6vh;
 }
@@ -838,10 +835,11 @@ input[type="submit"]:active {
     .employee__info {
         max-width: 220px;
         max-height: 104px;
+        margin-bottom: 12px;
     }
 
     .grid-layout.grid-layout_employee {
-        grid-template: 1fr 32px / repeat(3, 3fr);
+        grid-template: 1fr / repeat(3, 3fr);
     }
 
     .get-a-quote {
@@ -850,7 +848,7 @@ input[type="submit"]:active {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 767px) {
     .slider__slide {
         border-bottom: 2px solid #EA676B;
     }
@@ -890,7 +888,7 @@ input[type="submit"]:active {
 
     .about-us {
         height: 100%;
-        max-height: 2100px;
+        max-height: 3000px;
         padding: 33px 30px 45px;
     }
 
@@ -942,7 +940,25 @@ input[type="submit"]:active {
     }
 }
 
+@media (max-width: 375px) {
+
+    .slider__arrow.arrow_rotate {
+        left: 92%;
+    }
+
+    .phone__screen {
+        top: 13.1%;
+        height: 68%;
+        left: 6.7%;
+    }
+    
+    .phone__screen_horizontal {
+        top: 12.3%;
+    }
+}
+
 @media (max-width: 320px) {
+
     .portfolio__link {
         font-size: 10px;
     }
