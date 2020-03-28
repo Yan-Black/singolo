@@ -2,6 +2,7 @@ let sections   = document.querySelectorAll('main, main >*'),
     nav        = document.querySelector('.navigation'),
     hamburger  = document.querySelector('.header__hamburger'),
     mobileNav  = document.querySelector('.mobile-navigation__links'),
+    asideBar   = document.querySelector('.mobile-navigation'),
     navLinks   = document.querySelectorAll('.navigation__link')
     slider     = document.querySelector('.slider__container'),
     slides     = [...document.querySelectorAll('.slider__slide')],
@@ -15,18 +16,23 @@ let sections   = document.querySelectorAll('main, main >*'),
 
 document.addEventListener('scroll', onScroll)    
 
-document.querySelector('.mobile-navigation').addEventListener('click', e => {
+asideBar.addEventListener('click', e => {
     let target = e.target 
-    console.log(target.className);
-    
+
     if(target.className !== 'mobile-navigation mobile-navigation-active') return
     hamburger.click()
 })
 
 hamburger.addEventListener('click', function() {
-    this.classList.toggle('hamburger-active')
-    document.querySelector('.mobile-navigation').classList.toggle('mobile-navigation-active')
-    document.querySelector('.header > h1').classList.toggle('hidden')
+    if(getComputedStyle(document.querySelector('.header__navigation')).display === 'none') {
+
+        asideBar.style.height = document.documentElement.clientHeight + 'px'
+
+        this.classList.toggle('hamburger-active')
+        asideBar.classList.toggle('mobile-navigation-active')
+
+        document.querySelector('.header > h1').classList.toggle('hidden')
+    }
 })
 
 mobileNav.addEventListener('click', moveToSection) 
@@ -162,9 +168,16 @@ function moveToSection(e) {
     e.preventDefault()
     let target = e.target
         if(target.tagName != 'A') return
-
+        
         sections.forEach(section => {
             if(target.getAttribute('href').substr(1) === section.getAttribute('id')) {
+
+                //Defines necessary bottom offset in dependency of the device screen height.
+                //Purpose: add accurate offsetTop for contact section.
+                if(document.documentElement.clientHeight > document.getElementById('get-a-quote').offsetHeight + footer.offsetHeight + header.offsetHeight) {
+                    footer.style.marginBottom = document.documentElement.clientHeight - (document.getElementById('get-a-quote').offsetHeight + footer.offsetHeight + header.offsetHeight) + 'px'
+                } else footer.style.marginBottom = 0 + 'px'
+
                 window.scrollTo(0,section.offsetTop)
                 hamburger.click()
             }
