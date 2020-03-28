@@ -87,6 +87,14 @@ html {
     letter-spacing: -1px;
 }
 
+.mobile-head {
+    color: blue;
+    font-size: 26px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
 .hidden {
     display: none;
 }
@@ -103,7 +111,7 @@ html {
     left: -100%;
     width: 100%;
     background: #0008;
-    height: 1080px;
+    /* height: 1080px; */
     transition: ease-in-out .3s;
 }
 
@@ -188,7 +196,7 @@ html {
 .slider__slide.slider__slide_two {
     border: none;
     position: absolute;
-    max-height: 594px;
+    max-height: 600px;
     top: 0;
     left: 50%;
 }
@@ -550,7 +558,8 @@ input.invalid {
 
 input[type="submit"] {
     cursor: pointer;
-    color: #f0d8d9;
+    background-color: #FBC65F;
+    color: #886A30;
     font-size: 11px;
     letter-spacing: 0.3px;
     transition: all .1s;
@@ -714,7 +723,7 @@ input[type="submit"]:active {
     font-size: 12px;
     font-weight: 900;
     text-align: center;
-    margin-bottom: 14.6vh;
+    /* margin-bottom: 14.6vh; */
 }
 
 .footer__license {
@@ -849,6 +858,7 @@ input[type="submit"]:active {
 }
 
 @media (max-width: 767px) {
+
     .slider__slide {
         border-bottom: 2px solid #EA676B;
     }
@@ -856,7 +866,11 @@ input[type="submit"]:active {
     .our-services {
         height: 100%;
         max-height: 1050px;
-        padding: 25px 29px 15px 32px;
+        padding: 25px 29px 25px 32px;
+    }
+
+    .section__info_our-services {
+        margin-bottom: 25px;
     }
 
     .grid-layout {
@@ -911,7 +925,7 @@ input[type="submit"]:active {
     .get-a-quote {
         height: 100%;
         max-height: 1100px;
-        padding: 42px 30px;
+        padding: 44px 30px;
     }
 
     .section__info_get-a-quote {
@@ -942,8 +956,12 @@ input[type="submit"]:active {
 
 @media (max-width: 375px) {
 
+    .slider__arrow {
+        left: 2.7%;
+    }
+
     .slider__arrow.arrow_rotate {
-        left: 92%;
+        left: 93%;
     }
 
     .phone__screen {
@@ -959,7 +977,22 @@ input[type="submit"]:active {
 
 @media (max-width: 320px) {
 
+    .phone__screen {
+        top: 13.3%;
+        left: 6.3%;
+        height: 67.5%;
+    }
+
+    .phone__screen_horizontal {
+        left: 6.4%;
+        top: 12.6%;
+    }
+
     .portfolio__link {
         font-size: 10px;
+    }
+
+    .portfolio__gallery {
+        height: 565px;
     }
 }
