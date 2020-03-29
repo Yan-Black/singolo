@@ -135,7 +135,7 @@ html {
 
 .navigation li::after {
     content: '.';
-    color: #494e62;
+    color: #fff;
     position: absolute;
     left: -16px;
     top: -2px;
@@ -753,6 +753,59 @@ input[type="submit"]:active {
 }
 
 @media (max-width: 768px) {
+
+    .slider {
+        margin-top: 71px;
+    }
+
+    .slider__slide {
+        border-bottom: 4px solid #EA676B;
+    }
+
+    .our-services {
+        height: 100%;
+        max-height: 675px;
+        padding: 40px 40px 64px 41px;
+        border-bottom: none;
+    }
+
+    .grid-layout {
+        grid-template: 1fr 1fr / repeat(2, 59px 2fr);
+    }
+
+    .portfolio {
+        height: 100%;
+        padding: 59px 40px 68px;
+        max-height: 1102px;
+        border-bottom: none;
+    }
+
+    .portfolio__gallery {
+        grid-template: repeat(4, 1fr) / repeat(3, 1fr);
+    }
+
+    .about-us {
+        border: none;
+    }
+
+    .employee__info {
+        max-width: 220px;
+        max-height: 104px;
+        margin-bottom: 12px;
+    }
+
+    .grid-layout.grid-layout_employee {
+        grid-template: 1fr / repeat(3, 3fr);
+    }
+
+    .get-a-quote {
+        height: 100%;
+        max-height: 1000px;
+    }
+}
+
+@media (max-width: 767px) {
+
     .header {
         height: 71px;
         padding: 24px 0 23px;
@@ -807,58 +860,6 @@ input[type="submit"]:active {
         letter-spacing: -0.035em;
     }
 
-    .slider {
-        margin-top: 71px;
-    }
-
-    .slider__slide {
-        border-bottom: 4px solid #EA676B;
-    }
-
-    .our-services {
-        height: 100%;
-        max-height: 675px;
-        padding: 40px 40px 64px 41px;
-        border-bottom: none;
-    }
-
-    .grid-layout {
-        grid-template: 1fr 1fr / repeat(2, 59px 2fr);
-    }
-
-    .portfolio {
-        height: 100%;
-        padding: 59px 40px 68px;
-        max-height: 1102px;
-        border-bottom: none;
-    }
-
-    .portfolio__gallery {
-        grid-template: repeat(4, 1fr) / repeat(3, 1fr);
-    }
-
-    .about-us {
-        border: none;
-    }
-
-    .employee__info {
-        max-width: 220px;
-        max-height: 104px;
-        margin-bottom: 12px;
-    }
-
-    .grid-layout.grid-layout_employee {
-        grid-template: 1fr / repeat(3, 3fr);
-    }
-
-    .get-a-quote {
-        height: 100%;
-        max-height: 1000px;
-    }
-}
-
-@media (max-width: 767px) {
-
     .slider__slide {
         border-bottom: 2px solid #EA676B;
     }
@@ -896,7 +897,7 @@ input[type="submit"]:active {
 
     .portfolio__gallery {
         grid-template: repeat(4, 1fr) / repeat(2, 1fr);
-        grid-gap: 13px;
+        grid-gap: 14px 13px;
         height: 550px;
     }
 
